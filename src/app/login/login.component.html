@@ -1,0 +1,54 @@
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" placeholder="username" minlength="2"/>
+      <div class="form-text text-danger"
+                *ngIf="username.errors?.['required'] && (username.touched || username.dirty)">Username is Required</div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password"placeholder="Enter your password" maxlength="8" />
+      <div class="form-text text-danger"
+                *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">Password is Required</div>
+              <div class="form-text text-danger"
+                *ngIf="password.errors?.['minlength'] && (password.touched || password.dirty)">Password Must have 8
+                characters</div>
+    </div>
+    <div>
+      <button type="submit">Login</button>
+    </div>
+  </form>
+   -->
+
+<div class="center-container">
+    <div class="form-container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="mat-form">
+  
+        <div class="form-row">
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" id="username" formControlName="username" placeholder="Username" minlength="2"/>
+            <mat-error *ngIf="loginForm.get('username')?.hasError('required') && (loginForm.get('username')?.touched || loginForm.get('username')?.dirty)">
+              Username is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="form-row">
+          <mat-form-field class="example-full-width">
+            <input matInput type="password" id="password" formControlName="password" placeholder="Password" maxlength="8"/>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required') && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength') && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+              Password must have at least 8 characters
+            </mat-error>
+          </mat-form-field>
+        </div>
+  
+        <div class="button-container">
+          <button mat-raised-button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
